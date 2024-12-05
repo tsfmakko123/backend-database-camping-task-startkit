@@ -330,24 +330,19 @@ group by "CREDIT_PACKAGE".name
 -- 6-4. 查詢：計算 11 月份總營收（使用 purchase_at 欄位統計）
 -- 顯示須包含以下欄位： 總營收
 SELECT 
-   sum(price) as "總營收"
-FROM "CREDIT_PURCHASE"
-INNER JOIN "CREDIT_PACKAGE" ON "CREDIT_PACKAGE".id = "CREDIT_PURCHASE".credit_package_id
-WHERE EXTRACT(MONTH FROM "CREDIT_PURCHASE".purchase_at) = 11
+   SUM("CREDIT_PACKAGE".price) AS "總營收"
+FROM 
+   "CREDIT_PURCHASE"
+INNER JOIN 
+   "CREDIT_PACKAGE" 
+ON 
+   "CREDIT_PACKAGE".id = "CREDIT_PURCHASE".credit_package_id
+WHERE 
+   EXTRACT(MONTH FROM "CREDIT_PURCHASE".purchase_at) = 11
+   AND EXTRACT(YEAR FROM "CREDIT_PURCHASE".purchase_at) = 2024
+   AND status <> '課程已取消'
 ;
 
-
-
--- 6-5. 查詢：計算 11 月份有預約課程的會員人數（需使用 Distinct，並用 created_at 和 status 欄位統計）
--- 顯示須包含以下欄位： 預約會員人數
-SELECT  
-    COUNT(DISTINCT "user_id") AS "預約會員人數"
-FROM 
-    "COURSE_BOOKING"
-WHERE
-    status != '課程以取消' 
-    AND EXTRACT(MONTH FROM "created_at") = 11
-    AND EXTRACT(YEAR FROM "created_at") = 2024;
 
 
 
