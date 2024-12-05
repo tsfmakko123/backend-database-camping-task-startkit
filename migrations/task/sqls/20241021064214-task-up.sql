@@ -346,7 +346,9 @@ FROM
     "COURSE_BOOKING"
 WHERE
     status != '課程以取消' 
-    AND "created_at" BETWEEN '2024-11-01 00:00:00' AND '2024-11-30 23:59:59';
+    AND EXTRACT(MONTH FROM "created_at") = 11
+    AND EXTRACT(YEAR FROM "created_at") = 2024;
+
 
 
 
