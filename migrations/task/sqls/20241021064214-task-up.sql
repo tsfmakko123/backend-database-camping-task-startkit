@@ -343,10 +343,11 @@ WHERE EXTRACT(MONTH FROM "CREDIT_PURCHASE".purchase_at) = 11
 SELECT  
     COUNT(DISTINCT "user_id") AS "預約會員人數"
 FROM 
-    "COURSE_BOOKING" 
+    "COURSE_BOOKING"
 WHERE
     status != '課程以取消' 
-   and "created_at" BETWEEN '2024-11-01' AND '2024-11-30';
+    AND "created_at" BETWEEN '2024-11-01 00:00:00' AND '2024-11-30 23:59:59';
+
 
 
 
