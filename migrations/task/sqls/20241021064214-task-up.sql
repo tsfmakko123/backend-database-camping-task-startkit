@@ -341,13 +341,13 @@ WHERE EXTRACT(MONTH FROM "CREDIT_PURCHASE".purchase_at) = 11
 -- 6-5. 查詢：計算 11 月份有預約課程的會員人數（需使用 Distinct，並用 created_at 和 status 欄位統計）
 -- 顯示須包含以下欄位： 預約會員人數
 SELECT  
-    COUNT(DISTINCT "cb"."user_id") AS "預約會員人數"
+    COUNT(DISTINCT "user_id") AS "預約會員人數"
 FROM 
-    "COURSE_BOOKING" cb 
+    "COURSE_BOOKING" 
 WHERE
-    cb.status != '課程以取消' 
-    AND EXTRACT(YEAR FROM "cb"."created_at") = 2024
-    AND EXTRACT(MONTH FROM "cb"."created_at") = 11;
+    status != '課程以取消' 
+    AND EXTRACT(YEAR FROM "created_at") = 2024
+    AND EXTRACT(MONTH FROM "created_at") = 11;
 
 
 
