@@ -284,18 +284,16 @@ group by
     cp.user_id;
 
 -- 5-7. 查詢：計算用戶王小明的已使用堂數，顯示須包含以下欄位： user_id , total。 (需使用到 Count 函式與 Group By)
-
-SELECT
-	user_id,
-	count(*) AS total
-FROM
-	"COURSE_BOOKING"
-WHERE
-	user_id = (SELECT id FROM "USER" WHERE email = 'wXlTq@hexschooltest.io')
-	AND
-	status != '課程已取消'
-GROUP BY
-	user_id;
+select 
+    user_id,
+    count(*) as total 
+from "CREDIT_PURCHASE" cp
+where 
+    user_id = (select id from "USER" where email='wXlTq@hexschooltest.io')
+    and
+    status !='課程已取消'
+group by 
+    cp.user_id  
 
 -- 5-8. [挑戰題] 查詢：請在一次查詢中，計算用戶王小明的剩餘可用堂數，顯示須包含以下欄位： user_id , remaining_credit
     -- 提示：
