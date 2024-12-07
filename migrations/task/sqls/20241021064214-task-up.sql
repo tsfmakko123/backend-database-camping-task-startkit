@@ -344,7 +344,7 @@ ORDER BY
 -- 顯示須包含以下欄位： 專長名稱, coach_total
 SELECT 
     s.name AS "專長名稱",
-    COUNT(c.id) AS "coach_total"
+    COUNT(*) AS "coach_total"
 FROM 
     "COACH_LINK_SKILL" cls
     JOIN "SKILL" s ON cls.skill_id = s.id
