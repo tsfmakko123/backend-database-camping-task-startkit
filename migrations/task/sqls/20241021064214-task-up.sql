@@ -212,18 +212,22 @@ values
         -- 1. 預約人設為 `好野人`
         -- 2. 預約時間`booking_at` 設為2024-11-24 16:00:00
         -- 3. 狀態`status` 設定為即將授課
-insert into "COURSE_BOOKING"(user_id,course_id,booking_at,status)
-values
+INSERT INTO "COURSE_BOOKING" (user_id, course_id, booking_at, status)
+VALUES
 (
-(select id from "USER" where email='wXlTq@hexschooltest.io'),
-(select id from "COURSE" where user_id=(select id from "USER" where email='lee2000@hexschooltest.io')),
-'2024-11-24 16:00:00','即將授課'),
+  (SELECT id FROM "USER" WHERE email = 'wXlTq@hexschooltest.io'),
+  (SELECT id FROM "COURSE" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'lee2000@hexschooltest.io')),
+  '2024-11-24 16:00:00',
+  '即將授課'
+),
 (
-(select id from "USER" where email='richman@hexschooltest.io'),
-(select id from "COURSE" where user_id=(select id from "USER" where email='lee2000@hexschooltest.io')),
-'2024-11-24 16:00:00','即將授課'
-)
-;
+  (SELECT id FROM "USER" WHERE email = 'richman@hexschooltest.io'),
+  (SELECT id FROM "COURSE" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'lee2000@hexschooltest.io')),
+  '2024-11-24 16:00:00',
+  '即將授課'
+);
+
+
 
 
 
