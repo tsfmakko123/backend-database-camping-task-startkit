@@ -382,7 +382,12 @@ WHERE
 -- 顯示須包含以下欄位： 預約會員人數
 SELECT 
   COUNT(DISTINCT("COURSE_BOOKING".user_id)) AS "預約會員人數"
-FROM "COURSE_BOOKING"
-WHERE "COURSE_BOOKING".created_at >= '2024-11-01 00:00:00' AND "COURSE_BOOKING".created_at <= '2024-11-30 23:59:59'
-AND status != '課程已取消';
+FROM 
+    "COURSE_BOOKING"
+WHERE 
+    "COURSE_BOOKING".created_at >= '2024-11-01 00:00:00' 
+    AND "COURSE_BOOKING".created_at <= '2024-11-30 23:59:59'
+AND status != 
+    '課程已取消'
+;
 
