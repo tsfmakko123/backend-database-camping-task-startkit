@@ -346,7 +346,7 @@ select
     s.name AS "專長名稱",
     COUNT(*) AS "coach_total"
 from 
-    "SKILL"
+    "SKILL" s
     join "COACH_LINK_SKILL" cls ON cls.skill_id = s.id
 group by
     s.name
