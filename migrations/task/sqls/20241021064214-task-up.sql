@@ -240,7 +240,6 @@ where user_id = (select id from "USER" where email='wXlTq@hexschooltest.io')
     -- 3. 狀態`status` 設定為即將授課
 insert into "COURSE_BOOKING"(user_id,course_id,booking_at,status)
 values
-(
 (select id from "USER" where email='wXlTq@hexschooltest.io'),
 (select id from "COURSE" where user_id=(select id from "USER" where email='lee2000@hexschooltest.io')),
 '2024-11-24 17:10:25','即將授課')
