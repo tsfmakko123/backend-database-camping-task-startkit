@@ -254,12 +254,13 @@ select
 	"COURSE_BOOKING".status AS 預約狀態,
 	"COURSE_BOOKING".cancelled_at AS 取消時間
 from 
-    "COURSE_BOOKING" cb 
+    "COURSE_BOOKING"
     join "USER" on "USER".id = "COURSE_BOOKING".user_id
 	join "COURSE" on "COURSE".id = "COURSE_BOOKING".course_id
 where 
     "USER".email = 'wXlTq@hexschooltest.io'
 ;
+
 
 -- 5-5. 修改：`王小明` 現在已經加入直播室了，請在`COURSE_BOOKING`更新該筆預約資料（請注意，不要更新到已經取消的紀錄）：
     -- 1. 請在該筆預約記錄他的加入直播室時間 `join_at` 設為2024-11-25 14:01:59
