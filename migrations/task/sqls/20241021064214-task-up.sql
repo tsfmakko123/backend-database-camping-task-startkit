@@ -333,11 +333,17 @@ group by "CREDIT_PACKAGE".name
 
 -- 6-4. 查詢：計算 11 月份總營收（使用 purchase_at 欄位統計）
 -- 顯示須包含以下欄位： 總營收
-SELECT 
-  COUNT(DISTINCT("COURSE_BOOKING".user_id)) AS "預約會員人數"
+SELECT COUNT(DISTINCT "user_id") AS "預約會員人數"
 FROM "COURSE_BOOKING"
-WHERE "COURSE_BOOKING".created_at >= '2024-11-01 00:00:00' AND "COURSE_BOOKING".created_at <= '2024-11-30 23:59:59'
-AND status != '課程已取消';
+WHERE EXTRACT(
+    MONTH
+    FROM "created_at"
+  ) = 11
+  AND EXTRACT(
+    YEAR
+    FROM "created_at"
+  ) = 2024
+  AND "status" != '課程已取消';
 
 
 
