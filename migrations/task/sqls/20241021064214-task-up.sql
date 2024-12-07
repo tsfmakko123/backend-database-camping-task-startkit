@@ -287,7 +287,7 @@ group by
 select 
     user_id,
     count(*) as total 
-from "CREDIT_PURCHASE" cp
+from "COURSE_BOOKING" cp
 where 
     user_id = (select id from "USER" where email='wXlTq@hexschooltest.io')
     and
