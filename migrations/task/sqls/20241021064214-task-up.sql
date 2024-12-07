@@ -264,7 +264,7 @@ WHERE "USER".email = 'wXlTq@hexschooltest.io';
 update "COURSE_BOOKING" 
 set 
     status = '上課中',
-    join_at = '2024-11-25 14:01:59',
+    join_at = '2024-11-25 14:01:59'
 where 
         user_id = (select id from "USER" where email='wXlTq@hexschooltest.io') 
     and
