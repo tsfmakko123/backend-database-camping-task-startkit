@@ -352,7 +352,8 @@ group by
     s.name
 order BY 
     "coach_total" DESC
-limet 1;
+limit 1;
+
 
 -- 6-3. 查詢：計算 11 月份組合包方案的銷售數量
 -- 顯示須包含以下欄位： 組合包方案名稱, 銷售數量
