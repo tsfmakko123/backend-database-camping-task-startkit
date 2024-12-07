@@ -247,19 +247,16 @@ VALUES
 	);
 
 -- 5-4. 查詢：取得王小明所有的預約紀錄，包含取消預約的紀錄
-
-SELECT
-	"USER".name AS 預約會員,
-	"COURSE".name AS 預約課程,
-	"COURSE_BOOKING".booking_at AS 預約時間,
-	"COURSE_BOOKING".status AS 預約狀態,
-	"COURSE_BOOKING".cancelled_at AS 取消時間
-FROM
-	"COURSE_BOOKING"
-	INNER JOIN "USER" ON "USER".id = "COURSE_BOOKING".user_id
-	INNER JOIN "COURSE" ON "COURSE".id = "COURSE_BOOKING".course_id
-WHERE
-	"USER".email = 'wXlTq@hexschooltest.io';
+SELECT 
+    "USER".name AS 預約會員,
+    "COURSE".name AS 預約課程,
+    "COURSE_BOOKING".booking_at AS 預約時間,
+    "COURSE_BOOKING".status AS 預約狀態,
+    "COURSE_BOOKING".cancelled_at AS 取消時間
+FROM "COURSE_BOOKING"
+INNER JOIN "USER" ON "USER".id = "COURSE_BOOKING".user_id
+INNER JOIN "COURSE" ON "COURSE".id = "COURSE_BOOKING".course_id
+WHERE "USER".email = 'wXlTq@hexschooltest.io';
 
 -- 5-5. 修改：`王小明` 現在已經加入直播室了，請在`COURSE_BOOKING`更新該筆預約資料（請注意，不要更新到已經取消的紀錄）：
     -- 1. 請在該筆預約記錄他的加入直播室時間 `join_at` 設為2024-11-25 14:01:59
