@@ -287,13 +287,13 @@ group by
 select 
     user_id,
     count(*) as total 
-from "COURSE_BOOKING" cp
+from "COURSE_BOOKING"
 where 
     user_id = (select id from "USER" where email='wXlTq@hexschooltest.io')
     and
     status !='課程已取消'
 group by 
-    cp.user_id  
+    user_id;
 
 -- 5-8. [挑戰題] 查詢：請在一次查詢中，計算用戶王小明的剩餘可用堂數，顯示須包含以下欄位： user_id , remaining_credit
     -- 提示：
